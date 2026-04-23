@@ -6,31 +6,19 @@ It uses **LangChain, OpenAI, and ChromaDB** to combine document retrieval with l
 
 ---
 
-## 🚀 Features
-
-* 📄 Load and process PDF documents
-* ✂️ Split documents into semantic chunks
-* 🔍 Convert text into embeddings using OpenAI
-* 🧠 Store and retrieve knowledge using Chroma vector database
-* 💬 Chat with documents using GPT-4o-mini
-* ⚡ Streaming responses via Gradio UI
-* 📚 Strict RAG mode (answers only from document context)
-
----
-
-## 🧠 System Architecture (RAG Pipeline)
+## System Architecture (RAG Pipeline)
 
 This diagram illustrates how documents are ingested, embedded, stored, and later retrieved to generate context-aware responses using a Retrieval-Augmented Generation (RAG) pipeline.
 <img src="images/Project Architecture.png"/>
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
-1. PDF files are loaded from the `data/` folder
+1. PDF file are loaded from the `data/` folder
 2. Documents are split into overlapping chunks
 3. Each chunk is converted into embeddings
-4. Embeddings are stored in a Chroma vector database
+4. Embeddings are stored in a Chroma vector database locally
 5. When a user asks a question:
 
    * The system retrieves the most relevant chunks
@@ -39,15 +27,15 @@ This diagram illustrates how documents are ingested, embedded, stored, and later
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 .
 ├── ingest_data.py     # Loads PDFs and builds vector database
 ├── chatbot.py         # RAG chatbot with Gradio UI
-├── data/              # PDF documents (e.g. research papers)
+├── data/              # PDF document
 ├── chroma_db/         # Vector database storage
-├── .env               # OpenAI API key
+
 ```
 
 ---
@@ -57,17 +45,25 @@ This diagram illustrates how documents are ingested, embedded, stored, and later
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/rag-chatbot.git
-cd rag-chatbot
+git clone https://github.com/omaarelsherif/RAG-Chatbot-using-LangChain-OpenAI-and-ChromaDB.git
 ```
 
-### 2. Install dependencies
+### 2. Initialize virtual environment using UV
 
 ```bash
-pip install -r requirements.txt
+uv init
+```
+```bash
+uv sync
 ```
 
-### 3. Add OpenAI API key
+### 3. Install dependencies
+
+```bash
+uv pip install -r requirements.txt
+```
+
+### 4. Add OpenAI API key
 
 Create a `.env` file:
 
@@ -77,9 +73,9 @@ OPENAI_API_KEY=your_api_key_here
 
 ---
 
-## 📥 Ingest Documents
+## Ingest Documents
 
-Run this script once to process PDFs and build the vector database:
+Run this script once to process the PDF and build the vector database:
 
 ```bash
 python ingest_data.py
@@ -87,7 +83,7 @@ python ingest_data.py
 
 ---
 
-## 💬 Run the Chatbot
+## Run the Chatbot
 
 Start the Gradio UI:
 
@@ -99,7 +95,7 @@ Then open the local link in your browser.
 
 ---
 
-## 🧪 Example Use Cases
+## Example Use Cases
 
 * Ask questions about research papers
 * Summarize sections of PDFs
@@ -108,7 +104,7 @@ Then open the local link in your browser.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * Python
 * LangChain
@@ -116,19 +112,3 @@ Then open the local link in your browser.
 * ChromaDB
 * Gradio
 * PyPDF
-
----
-
-## 📌 Future Improvements
-
-* Add citation support (page numbers)
-* Improve retrieval with reranking
-* Support multiple document collections
-* Add memory for multi-turn reasoning
-* Deploy to cloud (HuggingFace Spaces / Render)
-
----
-
-## 📜 License
-
-This project is for educational purposes.
