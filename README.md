@@ -21,7 +21,7 @@ It uses **LangChain, OpenAI, and ChromaDB** to combine document retrieval with l
 ## 🧠 System Architecture (RAG Pipeline)
 
 This diagram illustrates how documents are ingested, embedded, stored, and later retrieved to generate context-aware responses using a Retrieval-Augmented Generation (RAG) pipeline.
-![](images/Project Architecture.png)
+<img src="images/Project Architecture.png"/>
 
 ---
 
