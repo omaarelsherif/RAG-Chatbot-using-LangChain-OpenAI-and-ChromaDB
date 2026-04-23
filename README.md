@@ -20,31 +20,8 @@ It uses **LangChain, OpenAI, and ChromaDB** to combine document retrieval with l
 
 ## 🧠 System Architecture (RAG Pipeline)
 
-```mermaid
-flowchart TD
-
-    subgraph Ingestion Pipeline
-        A[PDF Documents] --> B[PyPDF Loader]
-        B --> C[Text Splitter]
-        C --> D[Text Chunks]
-        D --> E[OpenAI Embeddings]
-        E --> F[Chroma Vector DB]
-    end
-
-    subgraph Chatbot Pipeline
-        G[User Question] --> H[Embedding]
-        H --> I[Retriever (Top-K)]
-        I --> J[Relevant Chunks]
-        J --> K[RAG Prompt]
-        K --> L[LLM (GPT-4o-mini)]
-        L --> M[Streaming Response]
-        M --> N[Gradio UI]
-    end
-
-    F --> I
-```
-
 This diagram illustrates how documents are ingested, embedded, stored, and later retrieved to generate context-aware responses using a Retrieval-Augmented Generation (RAG) pipeline.
+![Project Architecture](images/Project Architecture.png)
 
 ---
 
