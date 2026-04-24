@@ -24,20 +24,22 @@ load_dotenv()   # Load environment variables from .env file (OPENAI_API_KEY)
 # ---------------------------------
 DATA_PATH = r"data"
 CHROMA_PATH = r"chroma_db"
+EMBEDD_MODEL = r"text-embedding-3-large"
+LLM_MODEL = r"gpt-5-mini"
 
 # ---------------------------------
-# Embeddings and LLM model 
+# The LLM model
 # --------------------------------- 
 
-# Used to convert text into vector embeddings for similarity search
-embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
-
 # Initiate the LLM model
-llm = ChatOpenAI(temperature=0.5, model='gpt-4o-mini')
+llm = ChatOpenAI(temperature=0.5, model=LLM_MODEL)
 
 # ---------------------------------
 # Vector store 
 # --------------------------------- 
+
+# Embedding model to convert text into vector embeddings for similarity search
+embeddings_model = OpenAIEmbeddings(model=EMBEDD_MODEL)
 
 # Connect to the chromadb
 vector_store = Chroma(

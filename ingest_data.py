@@ -28,6 +28,7 @@ load_dotenv()   # Load environment variables from .env file (OPENAI_API_KEY)
 # ---------------------------------
 DATA_PATH = r"data"
 CHROMA_PATH = r"chroma_db"
+EMBEDD_MODEL = r"text-embedding-3-large"
 os.makedirs(CHROMA_PATH, exist_ok=True)
 
 # ---------------------------------
@@ -59,7 +60,7 @@ uuids = [str(uuid4()) for _ in range(len(chunks))]
 # --------------------------------- 
 
 # Initiate the embeddings model
-embeddings_model = OpenAIEmbeddings(model="text-embedding-3-large")
+embeddings_model = OpenAIEmbeddings(model=EMBEDD_MODEL)
 
 # Initiate the vector store
 vector_store = Chroma(
