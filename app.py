@@ -1,6 +1,6 @@
 """
 Title:
-    chatbot.py
+    app.py
 
 Description:
     This script implements a Retrieval-Augmented Generation (RAG) chatbot
