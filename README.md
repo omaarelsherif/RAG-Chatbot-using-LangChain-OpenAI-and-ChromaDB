@@ -32,7 +32,7 @@ This diagram illustrates how documents are ingested, embedded, stored, and later
 ```
 .
 ├── ingest_data.py     # Loads PDFs and builds vector database
-├── chatbot.py         # RAG chatbot with Gradio UI
+├── app.py             # RAG chatbot with Gradio app
 ├── data/              # PDF document
 ├── chroma_db/         # Vector database storage
 
@@ -88,7 +88,7 @@ python ingest_data.py
 Start the Gradio UI:
 
 ```bash
-python chatbot.py
+python app.py
 ```
 
 Then open the local link in your browser.
