@@ -108,7 +108,7 @@ Then open the local link in your browser.
 
 * Python
 * LangChain
-* OpenAI GPT-4o-mini
+* OpenAI API
 * ChromaDB
 * Gradio
 * PyPDF
